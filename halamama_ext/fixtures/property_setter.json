@@ -1,0 +1,18 @@
+[
+ {
+  "default_value": null,
+  "doc_type": "Product Image Item",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "alt_text",
+  "is_system_generated": 0,
+  "modified": "2026-10-09 15:56:55.573285",
+  "module": null,
+  "name": "Product Image Item-alt_text-in_list_view",
+  "property": "in_list_view",
+  "property_type": "Check",
+  "row_name": null,
+  "value": "1"
+ }
+]
