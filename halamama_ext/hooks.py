@@ -46,7 +46,8 @@ fixtures = [
                     "installation_section",
                     "installation_team",
    		            "sales_channel",
-                    "product_images"
+                    "product_images",
+                    "resources",
 
                 ],
             ],
