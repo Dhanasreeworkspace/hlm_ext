@@ -48,6 +48,7 @@ fixtures = [
    		            "sales_channel",
                     "product_images",
                     "resources",
+                    "installation_duration",
 
                 ],
             ],
