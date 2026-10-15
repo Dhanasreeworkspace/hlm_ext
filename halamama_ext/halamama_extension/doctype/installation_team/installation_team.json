@@ -7,7 +7,8 @@
  "engine": "InnoDB",
  "field_order": [
   "team_name",
-  "team_level"
+  "team_level",
+  "members"
  ],
  "fields": [
   {
@@ -24,12 +25,18 @@
    "in_list_view": 1,
    "label": "Team Level",
    "options": "Installation Level"
+  },
+  {
+   "fieldname": "members",
+   "fieldtype": "Table",
+   "label": "Members",
+   "options": "Installation Team Member"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-09-22 17:37:37.335578",
+ "modified": "2026-10-15 16:07:41.230787",
  "modified_by": "Administrator",
  "module": "Halamama Extension",
  "name": "Installation Team",
