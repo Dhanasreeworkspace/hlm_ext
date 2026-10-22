@@ -23,7 +23,8 @@ fixtures = [
                     "Pick List",
                     "Pick List Item",
                     "Item",
-		            "Sales Order",
+                    "Sales Order",
+                    "Customer"
 
                 ],
             ],
@@ -45,11 +46,12 @@ fixtures = [
                     "installation_level",
                     "installation_section",
                     "installation_team",
-   		            "sales_channel",
+                    "sales_channel",
                     "product_images",
                     "resources",
                     "installation_duration",
-
+                    "source",
+                    "source_customer_id",
                 ],
             ],
         ],
