@@ -54,6 +54,7 @@ fixtures = [
                     "installation_duration",
                     "source",
                     "source_customer_id",
+                    "terms_and_conditions",
                     "lead_time_for_delivery",
                     "order_pattern",
                     "cr_number",
@@ -115,7 +116,6 @@ fixtures = [
 # include js in doctype views
 doctype_js = {
     "Purchase Invoice" : "public/js/purchase_invoice.js",
-    "Purchase Order": "public/js/purchase_order.js"
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
