@@ -24,7 +24,9 @@ fixtures = [
                     "Pick List Item",
                     "Item",
                     "Sales Order",
-                    "Customer"
+                    "Customer",
+                    "Supplier",
+                    "Bank Account",
 
                 ],
             ],
@@ -52,6 +54,16 @@ fixtures = [
                     "installation_duration",
                     "source",
                     "source_customer_id",
+                    "terms_and_conditions",
+                    "lead_time_for_delivery",
+                    "order_pattern",
+                    "cr_number",
+                    "holding_company",
+                    "business_name",
+                    "other_terms",
+                    "item_return_policy",
+                    "swift_code",
+                    "branch"
                 ],
             ],
         ],
@@ -103,7 +115,7 @@ fixtures = [
 
 # include js in doctype views
 doctype_js = {
-    "Purchase Invoice" : "public/js/purchase_invoice.js"
+    "Purchase Invoice" : "public/js/purchase_invoice.js",
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
