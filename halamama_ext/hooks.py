@@ -113,7 +113,9 @@ fixtures = [
 
 # include js, css files in header of web template
 # web_include_css = "/assets/halamama_ext/css/halamama_ext.css"
-# web_include_js = "/assets/halamama_ext/js/halamama_ext.js"
+web_include_js = [
+    "/assets/halamama_ext/js/supplier_registration.js"
+]
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "halamama_ext/public/scss/website"
