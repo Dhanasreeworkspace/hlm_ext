@@ -96,9 +96,10 @@ frappe.ready(function () {
                     <thead>
                         <tr>
                             <th style="width: 25%;">Designation</th>
-                            <th style="width: 25%;">Name</th>
-                            <th style="width: 20%;">Phone</th>
-                            <th style="width: 30%;">Email</th>
+                            <th style="width: 22%;">Name</th>
+                            <th style="width: 18%;">Phone</th>
+                            <th style="width: 25%;">Email</th>
+                            <th style="width: 10%;">Action</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -108,7 +109,7 @@ frappe.ready(function () {
             <button type="button"
                     id="add-management-contact"
                     class="btn btn-sm btn-default">
-                + Add Another Contact
+                + Add Row
             </button>
 
             <hr>
@@ -192,11 +193,19 @@ frappe.ready(function () {
             </div>
 
             <hr>
-            <button type="button" id="supplier-registration-submit"
-                class="btn btn-primary">
-                Submit
-            </button>
+            <div class="d-flex justify-content-between mt-3">
+                <button type="button"
+                        id="supplier-registration-submit"
+                        class="btn btn-primary">
+                    Submit
+                </button>
 
+                <button type="button"
+                        id="supplier-registration-discard"
+                        class="btn btn-default">
+                    Discard
+                </button>
+            </div>
         </div>
     `;
 
@@ -255,25 +264,21 @@ frappe.ready(function () {
         },
     });
 
-    // Key Management Contacts: start with one row and allow up to five.
+    // Key Management Contacts
+    const default_designations = [
+        "Chief Executive Officer",
+        "General Manager",
+        "Account Manager",
+        "Finance Manager",
+        "Logistics"
+    ];
+
     let management_designations = [];
-    const max_management_contacts = 5;
 
     const management_table_body = $("#management-contacts-table tbody");
 
-    management_table_body.empty();
-
-    // Function to add one contact row.
-    function add_management_contact_row() {
-        const current_count = management_table_body.find("tr").length;
-
-        if (current_count >= max_management_contacts) {
-            frappe.msgprint(
-                __("You can add a maximum of 5 management contacts.")
-            );
-            return;
-        }
-
+    // Create a contact row.
+    function add_management_contact_row(default_designation = "") {
         const row = $(`
             <tr>
                 <td>
@@ -296,12 +301,18 @@ frappe.ready(function () {
                         class="form-control management-email"
                         placeholder="Email">
                 </td>
+                <td class="text-center">
+                    <button type="button"
+                            class="btn btn-sm btn-default remove-management-contact">
+                        Delete
+                    </button>
+                </td>
             </tr>
         `);
 
         const designation_select = row.find(".management-designation");
 
-        // Populate the dropdown with existing Designation records.
+        // Populate dropdown with existing ERPNext Designation records.
         management_designations.forEach(function (designation) {
             designation_select.append(
                 $("<option>", {
@@ -311,16 +322,26 @@ frappe.ready(function () {
             );
         });
 
+        if (default_designation) {
+            designation_select.val(default_designation);
+        }
+
         management_table_body.append(row);
     }
 
-    // Display one contact row initially.
-    add_management_contact_row();
-
-    // Add another contact when the button is clicked.
+    // Add another row.
     $("#add-management-contact").on("click", function () {
         add_management_contact_row();
     });
+
+    // Delete a row.
+    $("#management-contacts-table").on(
+        "click",
+        ".remove-management-contact",
+        function () {
+            $(this).closest("tr").remove();
+        }
+    );
 
     // Load Designation records from ERPNext.
     frappe.call({
@@ -328,42 +349,35 @@ frappe.ready(function () {
 
         callback: function (r) {
             management_designations = r.message || [];
+            management_table_body.empty();
 
-            // Populate all rows, including rows added before the response arrived.
-            $(".management-designation").each(function () {
-                const select = $(this);
-                const selected_value = select.val();
+            const designation_map = new Map(
+                management_designations.map(d => [
+                    d.value.trim().toLowerCase(),
+                    d.value
+                ])
+            );
 
-                select.empty().append(
-                    $("<option>", {
-                        value: "",
-                        text: __("Select Designation")
-                    })
+            default_designations.forEach(function (designation) {
+                const actual_designation = designation_map.get(
+                    designation.trim().toLowerCase()
                 );
 
-                management_designations.forEach(function (designation) {
-                    select.append(
-                        $("<option>", {
-                            value: designation.value,
-                            text: designation.label
-                        })
+                if (actual_designation) {
+                    add_management_contact_row(actual_designation);
+                } else {
+                    console.warn(
+                        "Designation not found in ERPNext: " + designation
                     );
-                });
-
-                select.val(selected_value);
+                }
             });
-        },
-
-        error: function () {
-            frappe.msgprint(
-                __("Unable to load Designations. Please refresh the page and try again.")
-            );
         }
     });
 
     // Hide the native submit button.
     $(".web-form-footer button[type='submit']").hide();
     $(".web-form-footer input[type='submit']").hide();
+    $(".web-form-footer button:contains('Discard')").hide();
 
     $("#supplier-registration-submit").on("click", function () {
         const button = $(this);

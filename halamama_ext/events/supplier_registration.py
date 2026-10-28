@@ -334,7 +334,7 @@ def create_supplier_registration(data=None):
         "iban": iban,
         "swift_code": (bank_data.get("swift_code") or "").strip(),
         "branch_code": (bank_data.get("branch_code") or "").strip(),
-        "bank_address": (bank_data.get("bank_address") or "").strip(),
+        "branch": (bank_data.get("bank_address") or "").strip(),
     }
 
     for fieldname, value in optional_bank_values.items():
