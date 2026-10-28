@@ -69,8 +69,8 @@ fixtures = [
                     "attributes",
                     "gender",
                     "column_break_89tq9",
-                    "age_group",
-                    "department",
+                    "age_groups",
+                    "departments",
                     "collections",
                     "width",
                     "height",
@@ -130,6 +130,9 @@ web_include_js = [
 # include js in doctype views
 doctype_js = {
     "Purchase Invoice" : "public/js/purchase_invoice.js",
+    "Purchase Order" :"public/js/purchase_order.js",
+    "Item": "public/js/item.js"
+
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
