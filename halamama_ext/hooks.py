@@ -87,6 +87,7 @@ fixtures = [
                     "package_weight",
                     "enable_product_sync",
                     "active_price_list",
+                    "external"
                 ],
             ],
         ],
@@ -96,6 +97,12 @@ fixtures = [
         "filters": [
             ["is_custom", "=", 1]
         ],
+    },
+    {
+        "doctype": "Warehouse Type",
+        "filters": [
+            ["name", "=", "Consignment"]
+        ]
     },
 ]
 
