@@ -98,12 +98,6 @@ fixtures = [
             ["is_custom", "=", 1]
         ],
     },
-    {
-        "doctype": "Warehouse Type",
-        "filters": [
-            ["name", "=", "Consignment"]
-        ]
-    },
 ]
 
 # Apps
