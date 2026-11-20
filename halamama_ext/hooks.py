@@ -90,7 +90,8 @@ fixtures = [
                     "active_price_list",
                     "external",
                     "consignment_warehouse",
-                    "is_consignment"
+                    "is_consignment",
+                    "is_consignement_"
                 ],
             ],
         ],
