@@ -101,12 +101,6 @@ fixtures = [
             ["is_custom", "=", 1]
         ],
     },
-        {
-        "doctype": "Property Setter",
-        "filters": [
-            ["name", "=", "Customer-customer_group-reqd"]
-        ]
-    },
 ]
 
 # Apps
