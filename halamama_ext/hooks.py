@@ -101,10 +101,10 @@ fixtures = [
             ["is_custom", "=", 1]
         ],
     },
-    {
-        "doctype": "Customer Group",
+        {
+        "doctype": "Property Setter",
         "filters": [
-            ["name", "=", "Consignment"]
+            ["name", "=", "Customer-customer_group-reqd"]
         ]
     },
 ]
@@ -152,7 +152,9 @@ web_include_js = [
 doctype_js = {
     "Purchase Invoice" : "public/js/purchase_invoice.js",
     "Purchase Order" :"public/js/purchase_order.js",
-    "Item": "public/js/item.js"
+    "Item": "public/js/item.js",
+    "Customer": "public/js/customer.js"
+
 }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
