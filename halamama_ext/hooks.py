@@ -27,7 +27,8 @@ fixtures = [
                     "Customer",
                     "Supplier",
                     "Bank Account",
-                    "Material Request"
+                    "Material Request",
+                    "Purchase Order",
                 ],
             ],
             [
@@ -90,7 +91,8 @@ fixtures = [
                     "active_price_list",
                     "external",
                     "consignment_warehouse",
-                    "is_consignment"
+                    "is_consignment",
+                    "supplier_pack_list"
                 ],
             ],
         ],
