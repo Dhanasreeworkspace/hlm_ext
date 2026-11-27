@@ -35,8 +35,10 @@ async function update_required_by(frm) {
         ) {
             if (!frm.__lead_time_warning_shown) {
                 frm.__lead_time_warning_shown = true;
-                frappe.msgprint(__("Please set Lead Time for Delivery in the Supplier record.")
-                );
+                frappe.show_alert({
+                    message: __("Please set Lead Time for Delivery in the Supplier record."),
+                    indicator: "orange"
+                }, 5);
             }
             return;
         }
