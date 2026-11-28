@@ -92,7 +92,8 @@ fixtures = [
                     "external",
                     "consignment_warehouse",
                     "is_consignment",
-                    "supplier_pack_list"
+                    "supplier_pack_list",
+                    "consignment_sales_order"
                 ],
             ],
         ],
